@@ -4,13 +4,12 @@ const About = () => {
     return (
         <section>
             <div className='container mx-auto'>
-            <div className='relative -top-10 -left-10 -right-15'>
+                <div className='relative -top-10 -left-10 -right-15'>
                     <div className='w-80 h-80 absolute -right-20 -bottom-48 -z-10'>
                         <Image
                             src={'/basilik.png'}
-                            layout='fill'
-                            objectFit='contain'
                             alt='basilik'
+                            fill
                         />
                     </div>
                 </div>

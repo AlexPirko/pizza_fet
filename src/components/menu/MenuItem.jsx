@@ -18,7 +18,7 @@ const MenuItem = () => {
                 Italian flour according to the signature recipe.
             </p>
             <h4 className='text-2xl my-2'>$12.00</h4>
-            <button className='bg-primary text-white mt-4 rounded-full px-10 py-2'>
+            <button className='btn !px-12 my-2'>
                 Add to Cart
             </button>
         </div>

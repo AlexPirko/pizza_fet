@@ -9,17 +9,15 @@ const Menu = () => {
                     <div className='w-72 h-72 absolute -left-12 -bottom-24 -z-10'>
                         <Image
                             src={'/cherry.png'}
-                            layout='fill'
-                            objectFit='contain'
                             alt='cherry'
+                            fill
                         />
                     </div>
                     <div className='w-80 h-80 absolute -right-20 -bottom-48 -z-10'>
                         <Image
                             src={'/pepper.png'}
-                            layout='fill'
-                            objectFit='contain'
                             alt='pepper'
+                            fill
                         />
                     </div>
                 </div>
