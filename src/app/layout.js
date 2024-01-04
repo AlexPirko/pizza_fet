@@ -1,5 +1,6 @@
 import { Roboto } from 'next/font/google';
 import './globals.css';
+import { Toaster } from 'react-hot-toast';
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -14,9 +15,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang='en'>
+        <html lang='en' className='scroll-smooth'>
             <body className={roboto.className}>
                 <AppProvider>
+                    <Toaster/>
                     <Header />
                     {children}
                     <Footer />

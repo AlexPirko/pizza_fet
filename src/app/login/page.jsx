@@ -1,9 +1,9 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
+import Link from 'next/link';
 import { useState } from 'react';
 import { IoLogoGoogle } from 'react-icons/io';
-import Link from 'next/link';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -33,7 +33,7 @@ const LoginPage = () => {
                     placeholder='email'
                     value={email}
                     disabled={loginInProgress}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(ev) => setEmail(ev.target.value)}
                 />
                 <input
                     type='password'
@@ -41,11 +41,12 @@ const LoginPage = () => {
                     placeholder='password'
                     value={password}
                     disabled={loginInProgress}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(ev) => setPassword(ev.target.value)}
                 />
                 <button
+                    disabled={loginInProgress}
                     className='submit'
-                    disabled={loginInProgress}>
+                    type='submit'>
                     Login
                 </button>
                 <div className='my-2 text-center text-dark/90'>

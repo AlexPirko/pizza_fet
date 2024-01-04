@@ -1,15 +1,18 @@
+import * as mongoose from 'mongoose';
+import clientPromise from '@/libs/mongoConnect';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import bcrypt from 'bcrypt';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import clientPromise from '@/libs/mongoConnect';
 
 import { User } from '@/models/User';
-import mongoose from 'mongoose';
 
-const handler = NextAuth({
+export const authOptions = {
     secret: process.env.SECRET,
+    session: {
+        strategy: 'jwt',
+    },
     adapter: MongoDBAdapter(clientPromise),
     providers: [
         GoogleProvider({
@@ -23,12 +26,13 @@ const handler = NextAuth({
                 username: {
                     label: 'Email',
                     type: 'email',
-                    placeholder: 'test@gmail.com',
+                    placeholder: 'test@example.com',
                 },
                 password: { label: 'Password', type: 'password' },
             },
             async authorize(credentials, req) {
-                const { email, password } = credentials;
+                const email = credentials?.email;
+                const password = credentials?.password;
 
                 mongoose.connect(process.env.MONGO_URL);
                 const user = await User.findOne({ email });
@@ -43,6 +47,8 @@ const handler = NextAuth({
             },
         }),
     ],
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

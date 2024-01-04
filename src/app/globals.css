@@ -16,7 +16,7 @@ input[type='email'],
 input[type='password'],
 input[type='tel'],
 input[type='text'] {
-    @apply block w-full mb-2 rounded-xl;
+    @apply block w-full mb-3 rounded-xl;
     @apply border p-2 border-gray-300 bg-gray-100;
 }
 
@@ -28,7 +28,7 @@ input[type='text']:disabled {
 }
 
 label {
-    @apply text-dark/80 text-sm leading-tight;
+    @apply text-dark/80 text-sm leading-tight ml-2;
 }
 
 label + input {
@@ -52,4 +52,8 @@ button.primary {
 button[type='submit']:disabled,
 .submit:disabled {
     @apply cursor-not-allowed bg-red-200;
+}
+
+div.tabs > * {
+    @apply bg-primary/80 text-white text-base rounded-lg py-2 px-4 mb-16 hover:bg-primary;
 }
