@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { redirect } from 'next/navigation';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
+import UserTabs from '@/components/UserTabs';
+import EditableImage from '@/components/layout/EditableImage';
 
 const ProfilePage = () => {
     const session = useSession();
@@ -15,21 +17,23 @@ const ProfilePage = () => {
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
     const [isAdmin, setIsAdmin] = useState(false);
+    const [profileFetched, setProfileFetched] = useState(false);
     const { status } = session;
 
     useEffect(() => {
         if (status === 'authenticated') {
-            setUserName(session.data.user.name);
-            setImage(session.data.user.image);
             fetch('/api/profile').then((response) => {
                 response.json().then((data) => {
-                    // setPhone(data.phone);
-                    // setAddress(data.address);
-                    // setIsAdmin(data.admin);
+                    setUserName(data.name);
+                    setImage(data.image);
+                    setPhone(data.phone);
+                    setAddress(data.address);
+                    setIsAdmin(data.admin);
+                    setProfileFetched(true);
                 });
             });
         }
-    }, [session, status]);
+    }, [status]);
 
     const handleProfileUpdate = async (e) => {
         e.preventDefault();
@@ -49,34 +53,7 @@ const ProfilePage = () => {
         });
     };
 
-    const handleFileChange = async (e) => {
-        const files = e.target.files;
-        if (files?.length === 1) {
-            const data = new FormData();
-            data.set('file', files[0]);
-
-            await toast.promise(
-                fetch('/api/upload', {
-                    method: 'POST',
-                    body: data,
-                }).then((response) => {
-                    if (response.ok) {
-                        return response.json().then((link) => {
-                            setImage(link);
-                        });
-                    }
-                    throw new Error('Something went wrong...');
-                }),
-                {
-                    loading: 'Uploading...',
-                    success: 'Upload complete!',
-                    error: 'Upload error',
-                },
-            );
-        }
-    };
-
-    if (status === 'loading') {
+    if (status === 'loading' || !profileFetched) {
         return (
             <div className='p-8 flex-auto text-dark text-2xl font-semibold'>
                 Loading...
@@ -89,44 +66,19 @@ const ProfilePage = () => {
     }
 
     return (
-        <section className='mt-8 flex-auto'>
-            <h1 className='mb-4 text-center text-dark text-4xl font-semibold xl:text-5xl'>
+        <section className='py-8 flex-auto'>
+            <h2 className='mb-4 text-center text-dark text-3xl font-semibold xl:text-5xl'>
                 Profile
-            </h1>
-            <div className='flex justify-center gap-4 tabs'>
-                {isAdmin && (
-                    <>
-                        <Link href={'/profile'}>Profile</Link>
-                        <Link href={'/categories'}>Categories</Link>
-                        <Link href={'/menu-items'}>Menu Items</Link>
-                        <Link href={'/users'}>Users</Link>
-                    </>
-                )}
-            </div>
-            <div className=' max-w-lg mx-auto'>
+            </h2>
+            <UserTabs isAdmin={isAdmin} />
+            <div className='max-w-lg mx-auto border-t pt-4'>
                 <div className='flex gap-4 justify-center'>
                     <div>
                         <div className='flex flex-col p-2 rounded-lg relative'>
-                            {image && (
-                                <Image
-                                    className='rounded-lg w-full h-full mb-2'
-                                    src={image}
-                                    width={100}
-                                    height={100}
-                                    alt='avatar'
-                                />
-                            )}
-
-                            <label className='!ml-0'>
-                                <input
-                                    className='hidden'
-                                    type='file'
-                                    onChange={handleFileChange}
-                                />
-                                <span className='block border border-gray-300 rounded-lg p-1.5 text-center font-semibold text-base cursor-pointer'>
-                                    Edit
-                                </span>
-                            </label>
+                            <EditableImage
+                                link={image}
+                                setLink={setImage}
+                            />
                         </div>
                     </div>
                     <form

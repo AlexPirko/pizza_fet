@@ -31,16 +31,16 @@ label {
     @apply text-dark/80 text-sm leading-tight ml-2;
 }
 
-label + input {
+label+input {
     margin-top: -2px;
 }
 
 .btn {
-    @apply bg-primary text-white rounded-full px-6 py-2 transition-all duration-300 hover:bg-secondary;
+    @apply bg-primary text-white rounded-full px-5 py-2 transition-all duration-300 hover:bg-secondary;
 }
 
 .btn__outline {
-    @apply bg-light text-dark border border-gray-300 rounded-xl py-2 hover:bg-white;
+    @apply bg-light text-dark border border-dark/10 rounded-xl px-5 p-2 hover:bg-white;
 }
 
 button[type='submit'],
@@ -54,6 +54,10 @@ button[type='submit']:disabled,
     @apply cursor-not-allowed bg-red-200;
 }
 
-div.tabs > * {
-    @apply bg-primary/80 text-white text-base rounded-lg py-2 px-4 mb-16 hover:bg-primary;
+div.tabs>* {
+    @apply bg-secondary/80 text-white text-sm rounded-lg py-1.5 px-3 mb-10 hover:bg-primary;
+}
+
+div.tabs>*.active {
+    @apply bg-secondary hover:bg-primary;
 }
