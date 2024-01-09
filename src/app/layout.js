@@ -15,10 +15,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang='en' className='scroll-smooth'>
+        <html
+            lang='en'
+            className='scroll-smooth'>
             <body className={roboto.className}>
                 <AppProvider>
-                    <Toaster/>
+                    <Toaster />
                     <Header />
                     {children}
                     <Footer />

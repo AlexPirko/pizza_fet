@@ -1,9 +1,10 @@
+'use client';
 import Image from 'next/image';
-import MenuItem from '../menu/MenuItem';
+import MenuGallery from '../menu/MenuGallery';
 
 const Menu = () => {
     return (
-        <section className='py-20'>
+        <section id='menu' className='py-20'>
             <div className='container mx-auto'>
                 <div className='relative -top-10 -left-10 -right-15'>
                     <div className='w-72 h-72 absolute -left-12 -bottom-24 -z-10'>
@@ -23,18 +24,11 @@ const Menu = () => {
                 </div>
 
                 <div className='text-center'>
-                    <h2 className='uppercase text-dark text-4xl font-semibold mb-16'>
-                        our menu
+                    <h2 className='uppercase text-dark text-5xl font-semibold mb-12'>
+                        Our menu
                     </h2>
                 </div>
-                <div className='grid grid-cols-3 gap-6'>
-                    <MenuItem />
-                    <MenuItem />
-                    <MenuItem />
-                    <MenuItem />
-                    <MenuItem />
-                    <MenuItem />
-                </div>
+                <MenuGallery />
             </div>
         </section>
     );

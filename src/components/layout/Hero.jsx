@@ -22,11 +22,13 @@ const Hero = () => {
                             and... a lot of creativity!
                         </p>
 
-                        <div className='flex gap-4'>
-                            <button className='btn !px-12'>Order now</button>
-                            <button className='text-dark font-semibold'>
-                                Learn more
-                            </button>
+                        <div className='text-xl text-dark/90 font-semibold'>
+                            Order by{' '}
+                            <a
+                                className='text-primary tracking-wide text-2xl'
+                                href='tel:+180888888888'>
+                                +1(808)88888888
+                            </a>
                         </div>
                     </div>
                     <div className='w-[60%] flex items-center justify-end'>

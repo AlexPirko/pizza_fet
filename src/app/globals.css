@@ -36,17 +36,17 @@ label+input {
 }
 
 .btn {
-    @apply bg-primary text-white rounded-full px-5 py-2 transition-all duration-300 hover:bg-secondary;
+    @apply bg-primary text-white rounded-full px-5 py-2 transition-all duration-300 cursor-pointer hover:bg-secondary;
 }
 
 .btn__outline {
-    @apply bg-light text-dark border border-dark/10 rounded-xl px-5 p-2 hover:bg-white;
+    @apply bg-light text-dark border border-dark/10 rounded-xl px-5 p-2 cursor-pointer hover:bg-white;
 }
 
 button[type='submit'],
 .submit,
 button.primary {
-    @apply border-primary bg-primary text-white py-2 rounded-xl w-full hover:bg-secondary;
+    @apply border-primary bg-primary text-white py-2 rounded-xl w-full cursor-pointer hover:bg-secondary;
 }
 
 button[type='submit']:disabled,
