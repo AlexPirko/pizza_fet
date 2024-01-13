@@ -13,8 +13,8 @@ const Footer = () => {
             id='contact'
             className='bg-primary/90 text-white pt-16 flex-[0_0_auto]'>
             <div className='container mx-auto'>
-                <div className='flex flex-col justify-between sm:flex-row mb-8'>
-                    <div className='text-[10px] w-[300px] mb-8 xl:mb-0'>
+                <div className='flex flex-col justify-between gap-8 md:flex-row mb-8'>
+                    <div className='text-[10px] w-[300px] md:mb-8 xl:mb-0'>
                         <p className='text-xs font-semibold tracking-wider'>
                             Online-restaurant PizzaFet
                         </p>

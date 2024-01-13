@@ -19,7 +19,6 @@ export default function MenuItem(menuItem) {
     const { addToCart } = useContext(CartContext);
 
     async function handleAddToCartButtonClick() {
-        console.log('add to cart');
         const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
         if (hasOptions && !showPopup) {
             setShowPopup(true);
@@ -27,11 +26,10 @@ export default function MenuItem(menuItem) {
         }
         addToCart(menuItem, selectedSize, selectedExtras);
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        console.log('hiding popup');
         setShowPopup(false);
     }
-    function handleExtraThingClick(ev, extraThing) {
-        const checked = ev.target.checked;
+    function handleExtraThingClick(e, extraThing) {
+        const checked = e.target.checked;
         if (checked) {
             setSelectedExtras((prev) => [...prev, extraThing]);
         } else {
@@ -58,7 +56,7 @@ export default function MenuItem(menuItem) {
                     onClick={() => setShowPopup(false)}
                     className='fixed inset-0 bg-black/80 flex items-center justify-center'>
                     <div
-                        onClick={(ev) => ev.stopPropagation()}
+                        onClick={(e) => e.stopPropagation()}
                         className='my-8 bg-white p-2 rounded-lg max-w-md'>
                         <div
                             className='overflow-y-scroll p-2'
@@ -113,9 +111,9 @@ export default function MenuItem(menuItem) {
                                             className='flex items-center gap-2 p-3 border rounded-md mb-1'>
                                             <input
                                                 type='checkbox'
-                                                onChange={(ev) =>
+                                                onChange={(e) =>
                                                     handleExtraThingClick(
-                                                        ev,
+                                                        e,
                                                         extraThing,
                                                     )
                                                 }
@@ -131,13 +129,13 @@ export default function MenuItem(menuItem) {
                                 </div>
                             )}
 
-                            <div className='w-64 mx-auto'>
+                            <div className='w-full lg:w-64 mx-auto'>
                                 <button
                                     className='primary sticky bottom-24'
                                     onClick={handleAddToCartButtonClick}>
-                                    Add to cart:&nbsp;&nbsp;&nbsp;${selectedPrice}
+                                    Add to cart:&nbsp;&nbsp;&nbsp;$
+                                    {selectedPrice}
                                 </button>
-
                                 <button
                                     className='btn__outline w-full mt-2'
                                     onClick={() => setShowPopup(false)}>

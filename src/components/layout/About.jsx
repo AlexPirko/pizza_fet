@@ -5,7 +5,7 @@ const About = () => {
         <section id='about'>
             <div className='container mx-auto'>
                 <div className='relative -top-10 -left-10 -right-15'>
-                    <div className='w-80 h-80 absolute -right-20 -bottom-48 -z-10'>
+                    <div className='hidden w-80 h-80 absolute md:-right-40 -bottom-48 -z-10'>
                         <Image
                             src={'/basilik.png'}
                             alt='basilik'
@@ -16,8 +16,8 @@ const About = () => {
                 <h2 className='mb-12 uppercase text-dark text-6xl font-semibold text-center'>
                     About Us
                 </h2>
-                <div className='flex justify-start gap-8 py-4'>
-                    <div className='w-[30%] flex items-center justify-end'>
+                <div className='flex flex-col md:flex-row justify-start gap-8 py-4'>
+                    <div className='w-full md:w-[30%] flex items-center justify-center md:justify-end'>
                         <Image
                             src={'/pizza-cook.jpg'}
                             width={300}
@@ -25,7 +25,7 @@ const About = () => {
                             alt={'pizza'}
                         />
                     </div>
-                    <div className='w-[55%] text-dark/80 text-lg flex flex-col gap-2 py-8'>
+                    <div className='w-full md:w-[55%] text-dark/80 text-lg flex flex-col gap-2 py-8'>
                         <p>
                             Welcome to PizzaFet – where a passion for Italian
                             cuisine transforms into an unparalleled experience.

@@ -63,11 +63,11 @@ const ProfilePage = () => {
 
     return (
         <section className='py-8 flex-auto'>
-            <h2 className='mb-4 text-center text-dark text-3xl font-semibold xl:text-5xl'>
+            <UserTabs isAdmin={isAdmin} />
+            <h2 className='mb-6 text-center text-dark text-3xl font-semibold xl:text-5xl'>
                 Profile
             </h2>
-            <UserTabs isAdmin={isAdmin} />
-            <div className='max-w-lg mx-auto border-t pt-4'>
+            <div className='max-w-lg mx-auto border-t pt-6'>
                 <UserForm
                     user={user}
                     onSave={handleProfileUpdate}

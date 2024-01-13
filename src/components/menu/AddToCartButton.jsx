@@ -5,22 +5,25 @@ export default function AddToCartButton({
 }) {
     if (!hasSizesOrExtras) {
         return (
-            <div className='btn mt-4 w-64 mx-auto'>
+            <div className='btn mt-4 w-64 sm:w-auto lg:w-64 mx-auto'>
                 <div
                     className='flex justify-around'
+                    type='button'
                     onClick={onClick}>
-                    <div>Add to cart:</div><div>${basePrice}</div>
+                    <div>Add to cart:</div>
+                    <div>${basePrice}</div>
                 </div>
             </div>
         );
     }
     return (
-        <div className='btn mt-4 w-64 mx-auto'>
+        <div className='btn mt-4 w-64 sm:w-auto lg:w-64 mx-auto'>
             <div
+                className='flex justify-around'
                 type='button'
-                onClick={onClick}
-                className='flex justify-around'>
-                <div>Add to cart:</div><div>from ${basePrice}</div>
+                onClick={onClick}>
+                <div>Add to cart:</div>
+                <div>from ${basePrice}</div>
             </div>
         </div>
     );

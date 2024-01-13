@@ -28,11 +28,11 @@ export default function UsersPage() {
 
     return (
         <section className='py-8 flex-auto'>
-            <h2 className='mb-4 text-center text-dark text-3xl font-semibold xl:text-5xl'>
-                Users
-            </h2>
             <UserTabs isAdmin={true} />
-            <div className='max-w-lg mx-auto'>
+            <h2 className='mb-6 text-center text-dark text-3xl font-semibold xl:text-5xl'>
+                Users
+            </h2>            
+            <div className='max-w-lg mx-auto border-t pt-6'>
                 {users?.length > 0 &&
                     users.map((user) => (
                         <div

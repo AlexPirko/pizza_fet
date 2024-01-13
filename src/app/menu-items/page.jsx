@@ -30,11 +30,11 @@ export default function MenuItemsPage() {
 
     return (
         <section className='py-8 flex-auto'>
-            <h2 className='mb-4 text-center text-dark text-3xl font-semibold xl:text-5xl'>
-                Menu
-            </h2>
             <UserTabs isAdmin={true} />
-            <div className='max-w-lg mx-auto pt-4'>
+            <h2 className='mb-6 text-center text-dark text-3xl font-semibold xl:text-5xl'>
+                Menu
+            </h2>            
+            <div className='max-w-lg mx-auto pt-6 border-t'>
                 <div>
                     <Link
                         className='btn__outline flex justify-center items-center'

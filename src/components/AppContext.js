@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 export const CartContext = createContext({});
 
 export function cartProductPrice(cartProduct) {
-    let price = cartProduct.basePrice;
+    let price = cartProduct.basePrice * cartProduct.quantity;
     if (cartProduct.size) {
         price += cartProduct.size.price;
     }
@@ -27,6 +27,7 @@ export function AppProvider({ children }) {
         if (ls && ls.getItem('cart')) {
             setCartProducts(JSON.parse(ls.getItem('cart')));
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     function clearCart() {
@@ -37,12 +38,38 @@ export function AppProvider({ children }) {
     function removeCartProduct(indexToRemove) {
         setCartProducts((prevCartProducts) => {
             const newCartProducts = prevCartProducts.filter(
-                (v, index) => index !== indexToRemove,
+                (product) => product._id !== indexToRemove,
             );
             saveCartProductsToLocalStorage(newCartProducts);
             return newCartProducts;
         });
         toast.success('Product removed');
+    }
+
+    function addQnt(id) {
+        setCartProducts((prevProducts) => {
+            prevProducts.filter((product) => {
+                if (product._id === id) {
+                    product.quantity = product.quantity + 0.5;
+                }
+            });
+
+            saveCartProductsToLocalStorage([...prevProducts]);
+            return [...prevProducts];
+        });
+    }
+
+    function subtrQnt(id) {
+        setCartProducts((prevProducts) => {
+            prevProducts.filter((product) => {
+                if (product._id === id) {
+                    product.quantity = product.quantity - 0.5;
+                }
+            });
+
+            saveCartProductsToLocalStorage([...prevProducts]);
+            return [...prevProducts];
+        });
     }
 
     function saveCartProductsToLocalStorage(cartProducts) {
@@ -51,9 +78,9 @@ export function AppProvider({ children }) {
         }
     }
 
-    function addToCart(product, size = null, extras = []) {
+    function addToCart(product, size = null, extras = [], quantity = 1) {
         setCartProducts((prevProducts) => {
-            const cartProduct = { ...product, size, extras };
+            const cartProduct = { ...product, size, extras, quantity };
             const newProducts = [...prevProducts, cartProduct];
             saveCartProductsToLocalStorage(newProducts);
             return newProducts;
@@ -67,6 +94,8 @@ export function AppProvider({ children }) {
                     cartProducts,
                     setCartProducts,
                     addToCart,
+                    addQnt,
+                    subtrQnt,
                     removeCartProduct,
                     clearCart,
                 }}>

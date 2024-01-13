@@ -1,26 +1,43 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { signOut, useSession } from 'next-auth/react';
-import { CartContext } from '../AppContext';
-import { useContext } from 'react';
 import { FaBasketShopping } from 'react-icons/fa6';
+import { useContext, useEffect, useState } from 'react';
+
+import Nav from './Nav';
+import NavMobile from './NavMobile';
+import SubNav from './SubNav';
+import { CartContext } from '../AppContext';
 
 const Header = () => {
-    const session = useSession();
-    const status = session?.status;
-    const userData = session.data?.user;
+    const [active, setActive] = useState(false);
     const { cartProducts } = useContext(CartContext);
-    let userName = userData?.name || userData?.email;
-    if (userName && userName.includes(' ')) {
-        userName = userName.split(' ')[0];
-    }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setActive(window.scrollY > 100);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
-        <header className='flex-[0_0_auto]'>
+        <header
+            className={`${
+                active ? 'bg-dark-heavy py-4' : 'bg-none py-8'
+            } flex-[0_0_auto]`}>
             <div className='container mx-auto'>
                 <div className='flex items-center justify-between pt-4'>
-                    <div className='flex items-center'>
+                    <NavMobile
+                        containerStyles='lg:hidden'
+                        iconStyles='text-3xl text-white'
+                        linkStyles='uppercase text-white cursor-pointer'
+                    />
+                    <div className='flex xl:gap-6'>
                         <Link href='/'>
                             <Image
                                 src='/logo.png'
@@ -29,69 +46,26 @@ const Header = () => {
                                 alt='logo'
                             />
                         </Link>
-                        <nav className='flex items-center text-lg text-dark/90 font-semibold ml-16'>
-                            <Link
-                                href={'/'}
-                                className='pr-12'>
-                                Home
-                            </Link>
-                            <Link
-                                href={'/#menu'}
-                                className='pr-12'>
-                                Menu
-                            </Link>
-                            <Link
-                                href={'/#about'}
-                                className='pr-12'>
-                                About
-                            </Link>
-                            <Link
-                                href={'/#contact'}
-                                className='pr-16'>
-                                Contact
-                            </Link>
-                        </nav>
+                        <Nav
+                            containerStyles='hidden lg:flex items-center text-lg text-dark/90 font-semibold'
+                            linkStyles='capitalize ml-10 cursor-pointer'
+                        />
                     </div>
-
-                    <div className='flex items-center justify-between gap-6'>
+                    <SubNav containerStyles='hidden md:flex items-center justify-between' />
+                    <div className='relative'>
                         <Link
                             href={'/cart'}
-                            className='flex items-start mb-2'>
-                            <FaBasketShopping className='text-primary' size={32}/>
+                            className='absolute -top-5 right-8 xl:right-40 flex items-start mb-2'>
+                            <FaBasketShopping
+                                className='text-primary'
+                                size={36}
+                            />
                             {cartProducts?.length > 0 && (
                                 <span className='bg-primary/90 text-white text-xs py-1 px-1.5 rounded-full'>
                                     {cartProducts.length}
                                 </span>
                             )}
                         </Link>
-                        {status === 'authenticated' && (
-                            <div>
-                                <Link
-                                    href={'/profile'}
-                                    className='pr-4 text-primary text-base xl:text-lg'>
-                                    Hello, {userName}
-                                </Link>
-                                <button
-                                    onClick={() => signOut()}
-                                    className='btn !py-2 text-base'>
-                                    Logout
-                                </button>
-                            </div>
-                        )}
-                        {status === 'unauthenticated' && (
-                            <div>
-                                <Link
-                                    href={'/login'}
-                                    className='pr-4'>
-                                    Login
-                                </Link>
-                                <Link
-                                    href={'/register'}
-                                    className='btn !py-2 text-base'>
-                                    Register
-                                </Link>
-                            </div>
-                        )}
                     </div>
                 </div>
             </div>

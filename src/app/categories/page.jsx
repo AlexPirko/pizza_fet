@@ -86,13 +86,13 @@ export default function CategoriesPage() {
 
     return (
         <section className='py-8 flex-auto'>
-            <h2 className='mb-4 text-center text-dark text-3xl font-semibold xl:text-5xl'>
+            <UserTabs isAdmin={true} />
+            <h2 className='mb-6 text-center text-dark text-3xl font-semibold xl:text-5xl'>
                 Categories
             </h2>
-            <UserTabs isAdmin={true} />
-            <div className='max-w-lg mx-auto'>
+            <div className='max-w-lg mx-auto border-t'>
                 <form
-                    className='mt-4'
+                    className='mt-6'
                     onSubmit={handleCategorySubmit}>
                     <div className='flex gap-2 items-end'>
                         <div className='grow'>

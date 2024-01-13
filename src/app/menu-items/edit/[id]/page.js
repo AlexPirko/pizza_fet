@@ -83,7 +83,10 @@ export default function EditMenuItemPage() {
     return (
         <section className='py-8 flex-auto'>
             <UserTabs isAdmin={true} />
-            <div className='max-w-xl mx-auto mt-8'>
+            <h2 className='mb-6 text-center text-dark text-3xl font-semibold xl:text-5xl'>
+                Menu Item
+            </h2>
+            <div className='max-w-xl mx-auto pt-6 border-t'>
                 <Link
                     href={'/menu-items'}
                     className='btn__outline flex justify-center items-center'>
