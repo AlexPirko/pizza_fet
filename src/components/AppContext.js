@@ -27,7 +27,7 @@ export function AppProvider({ children }) {
         if (ls && ls.getItem('cart')) {
             setCartProducts(JSON.parse(ls.getItem('cart')));
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     function clearCart() {
@@ -80,8 +80,22 @@ export function AppProvider({ children }) {
 
     function addToCart(product, size = null, extras = [], quantity = 1) {
         setCartProducts((prevProducts) => {
+            let newProducts = [];
             const cartProduct = { ...product, size, extras, quantity };
-            const newProducts = [...prevProducts, cartProduct];
+            const idArr = prevProducts.map((product) => product._id);
+
+            if (prevProducts.length === 0) {
+                newProducts.push(cartProduct);
+            }
+
+            if (idArr) {
+                if (idArr.includes(cartProduct._id)) {
+                    newProducts = [...prevProducts];
+                } else {
+                    newProducts = [...prevProducts, cartProduct];
+                }
+            }
+
             saveCartProductsToLocalStorage(newProducts);
             return newProducts;
         });

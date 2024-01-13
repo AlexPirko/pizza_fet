@@ -33,7 +33,6 @@ export default function MenuItemTile({ onAddToCart, ...item }) {
                 hasSizesOrExtras={hasSizesOrExtras}
                 onClick={onAddToCart}
                 basePrice={basePrice}
-                id={_id}
             />
         </div>
     );
