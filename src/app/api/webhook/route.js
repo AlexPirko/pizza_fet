@@ -15,8 +15,9 @@ export async function POST(req) {
         console.log(e);
         return Response.json(e, { status: 400 });
     }
-    console.log(sig);
+
     if (event.type === 'checkout.session.completed') {
+        console.log(event);
         const orderId = event?.data?.object?.metadata?.orderId;
         const isPaid = event?.data?.object?.payment_status === 'paid';
         if (isPaid) {

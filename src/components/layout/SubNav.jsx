@@ -12,6 +12,9 @@ const SubNav = ({ containerStyles }) => {
     if (userName && userName.includes(' ')) {
         userName = userName.split(' ')[0];
     }
+    if (userName && userName.includes('@')) {
+        userName = userName.split('@')[0];
+    }
 
     return (
         <div className={`${containerStyles}`}>
@@ -20,7 +23,7 @@ const SubNav = ({ containerStyles }) => {
                     <Link
                         href={'/profile'}
                         className='pr-4 text-primary text-base font-semibold xl:text-lg'>
-                        Hello, {userName}
+                        Hi, {userName}
                     </Link>
                     <button
                         onClick={() => signOut()}
