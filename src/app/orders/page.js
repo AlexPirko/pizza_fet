@@ -30,13 +30,13 @@ export default function OrdersPage() {
             <UserTabs isAdmin={profile.admin} />
             <h2 className='mb-6 text-center text-dark text-3xl font-semibold xl:text-5xl'>
                 Orders
-            </h2>            
+            </h2>
             <div className='max-w-3xl mx-auto border-t pt-6'>
                 {loadingOrders && <div>Loading orders...</div>}
                 {orders?.length > 0 &&
-                    orders.map((order) => (
+                    orders.map((order, index) => (
                         <div
-                            key={order._id}
+                            key={index}
                             className='bg-gray-100 mb-2 p-4 rounded-lg flex flex-col md:flex-row items-center gap-6'>
                             <div className='grow flex flex-col md:flex-row items-center gap-6'>
                                 <div>

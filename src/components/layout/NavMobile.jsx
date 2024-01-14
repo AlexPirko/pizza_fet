@@ -1,15 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
-
-import Image from 'next/image';
 import Link from 'next/link';
-
 import { RiMenu2Line, RiHomeFill } from 'react-icons/ri';
 import { IoCloseOutline } from 'react-icons/io5';
 import { BiSolidFoodMenu } from 'react-icons/bi';
 import { FaUsers, FaEnvelope } from 'react-icons/fa';
+
 import SubNav from './SubNav';
 
 const links = [

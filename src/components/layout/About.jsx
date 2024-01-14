@@ -5,7 +5,7 @@ const About = () => {
         <section id='about'>
             <div className='container mx-auto'>
                 <div className='relative -top-10 -left-10 -right-15'>
-                    <div className='hidden w-80 h-80 absolute md:-right-40 -bottom-48 -z-10'>
+                    <div className='hidden md:block w-80 h-80 absolute md:-right-40 -bottom-48 -z-10'>
                         <Image
                             src={'/basilik.png'}
                             alt='basilik'
@@ -13,7 +13,7 @@ const About = () => {
                         />
                     </div>
                 </div>
-                <h2 className='mb-12 uppercase text-dark text-6xl font-semibold text-center'>
+                <h2 className='py-4 uppercase text-dark text-5xl font-semibold text-center'>
                     About Us
                 </h2>
                 <div className='flex flex-col md:flex-row justify-start gap-8 py-4'>

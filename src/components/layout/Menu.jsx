@@ -1,15 +1,16 @@
 'use client';
 import Image from 'next/image';
+
 import MenuGallery from '../menu/MenuGallery';
 
 const Menu = () => {
     return (
         <section
             id='menu'
-            className='py-20'>
+            className='py-8 md:py-20 min-h-[900px]'>
             <div className='container mx-auto'>
                 <div className='relative -top-10 -left-10 -right-15'>
-                    <div className='w-72 h-72 absolute -left-32 -bottom-36 md:-left-12 md:-bottom-24 -z-10'>
+                    <div className='w-72 h-72 absolute -left-32 -bottom-40 md:-left-12 md:-bottom-24 -z-10'>
                         <Image
                             src={'/cherry.png'}
                             alt='cherry'

@@ -16,7 +16,7 @@ const Hero = () => {
                             cleanliness of workspaces, and the quality of
                             services provided.
                         </p>
-                        <p className='mb-8 text-dark/80'>
+                        <p className='mb-6 text-dark/80'>
                             And not everyone knows that the main thing in our
                             business is skill, love for fresh ingredients,
                             and... a lot of creativity!
@@ -26,8 +26,8 @@ const Hero = () => {
                             Order by
                             <a
                                 className='text-primary tracking-wide text-2xl ml-3'
-                                href='tel:+180888888888'>
-                                +1(808)88888888
+                                href='tel:030 4343 6060'>
+                                030 4343 6060
                             </a>
                         </div>
                     </div>

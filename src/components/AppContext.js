@@ -80,25 +80,12 @@ export function AppProvider({ children }) {
 
     function addToCart(product, size = null, extras = [], quantity = 1) {
         setCartProducts((prevProducts) => {
-            let newProducts = [];
             const cartProduct = { ...product, size, extras, quantity };
-            const idArr = prevProducts.map((product) => product._id);
-
-            if (prevProducts.length === 0) {
-                newProducts.push(cartProduct);
-            }
-
-            if (idArr) {
-                if (idArr.includes(cartProduct._id)) {
-                    newProducts = [...prevProducts];
-                } else {
-                    newProducts = [...prevProducts, cartProduct];
-                }
-            }
-
+            const newProducts = [...prevProducts, cartProduct];
             saveCartProductsToLocalStorage(newProducts);
             return newProducts;
         });
+        toast.success('Product has been added!');
     }
 
     return (

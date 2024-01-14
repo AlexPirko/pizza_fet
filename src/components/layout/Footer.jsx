@@ -36,11 +36,11 @@ const Footer = () => {
                         <ul className='flex flex-col gap-y-6 text-sm text-white/90'>
                             <li className='flex items-end gap-2'>
                                 <GrSchedules size={28} />
-                                <span>Sunday - Saturday 11am - 11pm</span>
+                                <span>Sunday - Saturday 12pm to 10am</span>
                             </li>
                             <li className='flex items-end gap-2'>
                                 <CiLocationOn size={28} />
-                                <span>234 Smithdown Road</span>
+                                <span>183 Barking Rd, Colombo</span>
                             </li>
                         </ul>
                     </div>
