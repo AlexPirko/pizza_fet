@@ -25,7 +25,7 @@ export default function MenuItemTile({ onAddToCart, ...item }) {
                     alt='pizza'
                 />
             </div>
-            <h4 className='font-semibold text-xl my-3'>{name}</h4>
+            <div className='font-semibold text-xl my-3'>{name}</div>
             <p className='text-gray-500 text-sm min-h-16 line-clamp-3'>
                 {description}
             </p>

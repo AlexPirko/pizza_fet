@@ -54,13 +54,15 @@ const Header = () => {
                     <SubNav containerStyles='hidden md:flex items-center justify-between' />
                     <div className='relative'>
                         <Link
+                            alt='shop basket'
                             href={'/cart'}
                             className='absolute -top-5 right-8 xl:right-40 flex items-start mb-2'>
                             <FaBasketShopping
-                                className='text-primary'
                                 alt='shop cart'
+                                className='text-primary'
                                 size={36}
                             />
+                            <span className='hidden'>Shop Cart</span>
                             {cartProducts?.length > 0 && (
                                 <span className='bg-primary/90 text-white text-xs py-1 px-1.5 rounded-full'>
                                     {cartProducts.length}
