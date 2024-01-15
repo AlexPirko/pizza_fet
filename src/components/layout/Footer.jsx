@@ -75,7 +75,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className='py-4 border-t border-white/20'>
-                    <p className='text-white/80 text-center text-sm'>
+                    <p className='text-white/80 text-center text-sm font-thin'>
                         Copyright &copy; PizzaFet 2024 - All rights reserved.
                     </p>
                 </div>
