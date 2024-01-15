@@ -11,21 +11,21 @@ const Footer = () => {
     return (
         <footer
             id='contact'
-            className='bg-primary/90 text-white pt-16 flex-[0_0_auto]'>
+            className='bg-primaryDark/90 text-white pt-16 flex-[0_0_auto]'>
             <div className='container mx-auto'>
                 <div className='flex flex-col justify-between gap-8 md:flex-row mb-8'>
                     <div className='text-[10px] w-[300px] md:mb-8 xl:mb-0'>
                         <p className='text-xs font-semibold tracking-wider'>
                             Online-restaurant PizzaFet
                         </p>
-                        <p>
+                        <p className='text-white font-thin'>
                             is a brand for active and modern residents who value
                         </p>
                         <p>their time anddo not wish to spend it on cooking</p>
-                        <div className='text-base text-dark/90 font-semibold pt-1'>
+                        <div className='text-base font-semibold pt-1'>
                             Order by{' '}
                             <a
-                                className='text-white tracking-wide'
+                                className='text-white tracking-wide font-thin'
                                 href='tel:+180888888888'>
                                 +1(808)88888888
                             </a>

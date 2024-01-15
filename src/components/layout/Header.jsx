@@ -58,6 +58,7 @@ const Header = () => {
                             className='absolute -top-5 right-8 xl:right-40 flex items-start mb-2'>
                             <FaBasketShopping
                                 className='text-primary'
+                                alt='shop cart'
                                 size={36}
                             />
                             {cartProducts?.length > 0 && (
