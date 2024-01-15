@@ -32,7 +32,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div>
-                        <h5 className='font-semibold mb-5'>Info</h5>
+                        <div className='font-semibold mb-5'>Info</div>
                         <ul className='flex flex-col gap-y-6 text-sm text-white/90'>
                             <li className='flex items-end gap-2'>
                                 <GrSchedules size={28} />
@@ -45,7 +45,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <h5 className='font-semibold mb-4'>Socials</h5>
+                        <div className='font-semibold mb-4'>Socials</div>
                         <ul className='flex flex-col gap-y-5 text-white/90'>
                             <li className='flex items-end gap-2 '>
                                 <BiLogoFacebookSquare size={24} />

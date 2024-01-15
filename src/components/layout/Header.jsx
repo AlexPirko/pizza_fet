@@ -54,8 +54,8 @@ const Header = () => {
                     <SubNav containerStyles='hidden md:flex items-center justify-between' />
                     <div className='relative'>
                         <Link
-                            alt='shop basket'
                             href={'/cart'}
+                            aria-label='Your shop cart'
                             className='absolute -top-5 right-8 xl:right-40 flex items-start mb-2'>
                             <FaBasketShopping
                                 alt='shop cart'
