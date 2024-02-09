@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 const SubNav = ({ containerStyles }) => {
     const session = useSession();
     const status = session?.status;
-    const userData = session.data?.user;
+    const userData = session?.data?.user;
 
     let userName = userData?.name || userData?.email;
     if (userName && userName.includes(' ')) {

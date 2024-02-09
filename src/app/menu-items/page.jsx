@@ -24,7 +24,7 @@ export default function MenuItemsPage() {
         return <div className='flex-auto'>Loading user info...</div>;
     }
 
-    if (!data.admin) {
+    if (!data?.admin) {
         return 'Not an admin.';
     }
 
@@ -33,7 +33,7 @@ export default function MenuItemsPage() {
             <UserTabs isAdmin={true} />
             <h2 className='mb-6 text-center text-dark text-3xl font-semibold xl:text-5xl'>
                 Menu
-            </h2>            
+            </h2>
             <div className='max-w-lg mx-auto pt-6 border-t'>
                 <div>
                     <Link
@@ -54,20 +54,20 @@ export default function MenuItemsPage() {
                         {menuItems?.length > 0 &&
                             menuItems.map((item) => (
                                 <Link
-                                    key={item._id}
-                                    href={'/menu-items/edit/' + item._id}
+                                    key={item?._id}
+                                    href={'/menu-items/edit/' + item?._id}
                                     className='bg-gray-200 rounded-lg p-4'>
                                     <div className='relative'>
                                         <Image
                                             className='rounded-md'
-                                            src={item.image}
+                                            src={item?.image}
                                             alt={''}
                                             width={200}
                                             height={200}
                                         />
                                     </div>
                                     <div className='text-center'>
-                                        {item.name}
+                                        {item?.name}
                                     </div>
                                 </Link>
                             ))}

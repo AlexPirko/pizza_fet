@@ -23,7 +23,7 @@ const ProfilePage = () => {
             fetch('/api/profile').then((response) => {
                 response.json().then((data) => {
                     setUser(data);
-                    setIsAdmin(data.admin);
+                    setIsAdmin(data?.admin);
                     setProfileFetched(true);
                 });
             });
@@ -38,7 +38,7 @@ const ProfilePage = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
-            if (response.ok) resolve();
+            if (response?.ok) resolve();
             else reject();
         });
 

@@ -12,7 +12,7 @@ export default function AddressInputs({
                 type='tel'
                 placeholder='Phone number'
                 value={phone || ''}
-                onChange={(ev) => setAddressProp('phone', ev.target.value)}
+                onChange={(ev) => setAddressProp('phone', ev?.target?.value)}
             />
             <label>Street address</label>
             <input
@@ -21,7 +21,7 @@ export default function AddressInputs({
                 placeholder='Street address'
                 value={streetAddress || ''}
                 onChange={(ev) =>
-                    setAddressProp('streetAddress', ev.target.value)
+                    setAddressProp('streetAddress', ev?.target?.value)
                 }
             />
         </>

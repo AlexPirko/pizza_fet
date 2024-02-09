@@ -29,14 +29,14 @@ export default function MenuGallery() {
                 categories.map((c) => (
                     <div key={c._id}>
                         <div className='text-center'>
-                            <SectionHeaders mainHeader={c.name} />
+                            <SectionHeaders mainHeader={c?.name} />
                         </div>
                         <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6 mb-16'>
                             {menuItems
-                                .filter((item) => item.category === c._id)
+                                .filter((item) => item?.category === c._id)
                                 .map((item) => (
                                     <motion.div
-                                        key={item._id}
+                                        key={item?._id}
                                         variants={fadeIn('up', 0.2)}
                                         initial='hidden'
                                         whileInView={'show'}

@@ -8,7 +8,6 @@ import UserTabs from '@/components/UserTabs';
 import { useProfile } from '@/libs/hooks/useProfile';
 import DeleteButton from '@/components/DeleteButton';
 
-
 export default function CategoriesPage() {
     const [categoryName, setCategoryName] = useState('');
     const [categories, setCategories] = useState([]);
@@ -32,7 +31,7 @@ export default function CategoriesPage() {
         const creationPromise = new Promise(async (resolve, reject) => {
             const data = { name: categoryName };
             if (editedCategory) {
-                data._id = editedCategory._id;
+                data._id = editedCategory?._id;
             }
             const response = await fetch('/api/categories', {
                 method: editedCategory ? 'PUT' : 'POST',
@@ -138,7 +137,7 @@ export default function CategoriesPage() {
                     </h3>
                     <div className='flex flex-col gap-2'>
                         {categories?.length > 0 &&
-                            categories.map((c) => (
+                            categories?.map((c) => (
                                 <div
                                     key={c._id}
                                     className='bg-gray-100 rounded-xl p-1.5 px-4 flex gap-2 mb-1 items-center'>
@@ -149,14 +148,14 @@ export default function CategoriesPage() {
                                             type='button'
                                             onClick={() => {
                                                 setEditedCategory(c);
-                                                setCategoryName(c.name);
+                                                setCategoryName(c?.name);
                                             }}>
                                             <FaPenToSquare size={18} />
                                         </button>
                                         <DeleteButton
-                                            label=<FaTrashCan/>
+                                            label=<FaTrashCan />
                                             onDelete={() =>
-                                                handleDeleteClick(c._id)
+                                                handleDeleteClick(c?._id)
                                             }
                                         />
                                     </div>

@@ -29,7 +29,7 @@ export default function EditUserPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...data, _id: id }),
             });
-            if (res.ok) resolve();
+            if (res?.ok) resolve();
             else reject();
         });
 
@@ -44,7 +44,7 @@ export default function EditUserPage() {
         return <div className='flex-auto'>Loading user info...</div>;
     }
 
-    if (!data.admin) {
+    if (!data?.admin) {
         return <div className='flex-auto'>Not an admin</div>;
     }
 
@@ -53,7 +53,7 @@ export default function EditUserPage() {
             <UserTabs isAdmin={true} />
             <h2 className='mb-6 text-center text-dark text-3xl font-semibold xl:text-5xl'>
                 Users
-            </h2>            
+            </h2>
             <div className='max-w-lg mx-auto border-t pt-6'>
                 <UserForm
                     user={user}

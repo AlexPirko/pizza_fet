@@ -60,14 +60,14 @@ const NavMobile = ({ containerStyles, iconStyles, linkStyles }) => {
                             return (
                                 <Link
                                     key={index}
-                                    href={link.path}
-                                    offset={link.offset}
+                                    href={link?.path}
+                                    offset={link?.offset}
                                     className='flex items-center gap-x-3'>
                                     <div className={`${iconStyles}`}>
-                                        {link.icon}
+                                        {link?.icon}
                                     </div>
                                     <div className={`${linkStyles}`}>
-                                        {link.name}
+                                        {link?.name}
                                     </div>
                                 </Link>
                             );

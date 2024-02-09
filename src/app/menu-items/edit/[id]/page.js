@@ -37,7 +37,7 @@ export default function EditMenuItemPage() {
                 body: JSON.stringify(data),
                 headers: { 'Content-Type': 'application/json' },
             });
-            if (response.ok) resolve();
+            if (response?.ok) resolve();
             else reject();
         });
 
@@ -55,7 +55,7 @@ export default function EditMenuItemPage() {
             const res = await fetch('/api/menu-items?_id=' + id, {
                 method: 'DELETE',
             });
-            if (res.ok) resolve();
+            if (res?.ok) resolve();
             else reject();
         });
 

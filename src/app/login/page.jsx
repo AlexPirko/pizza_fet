@@ -33,7 +33,7 @@ const LoginPage = () => {
                     placeholder='email'
                     value={email}
                     disabled={loginInProgress}
-                    onChange={(ev) => setEmail(ev.target.value)}
+                    onChange={(ev) => setEmail(ev?.target?.value)}
                 />
                 <input
                     type='password'
@@ -41,7 +41,7 @@ const LoginPage = () => {
                     placeholder='password'
                     value={password}
                     disabled={loginInProgress}
-                    onChange={(ev) => setPassword(ev.target.value)}
+                    onChange={(ev) => setPassword(ev?.target?.value)}
                 />
                 <button
                     disabled={loginInProgress}

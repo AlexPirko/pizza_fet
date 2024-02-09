@@ -19,17 +19,18 @@ export default function MenuItem(menuItem) {
     const { addToCart } = useContext(CartContext);
 
     async function handleAddToCartButtonClick() {
-        const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
+        const hasOptions =
+            sizes?.length > 0 || extraIngredientPrices?.length > 0;
         if (hasOptions && !showPopup) {
             setShowPopup(true);
             return;
         }
-        addToCart(menuItem, selectedSize, selectedExtras );
+        addToCart(menuItem, selectedSize, selectedExtras);
         await new Promise((resolve) => setTimeout(resolve, 1000));
         setShowPopup(false);
     }
     function handleExtraThingClick(e, extraThing) {
-        const checked = e.target.checked;
+        const checked = e?.target?.checked;
         if (checked) {
             setSelectedExtras((prev) => [...prev, extraThing]);
         } else {
@@ -41,11 +42,11 @@ export default function MenuItem(menuItem) {
 
     let selectedPrice = basePrice;
     if (selectedSize) {
-        selectedPrice += selectedSize.price;
+        selectedPrice += selectedSize?.price;
     }
     if (selectedExtras?.length > 0) {
         for (const extra of selectedExtras) {
-            selectedPrice += extra.price;
+            selectedPrice += extra?.price;
         }
     }
 
@@ -81,7 +82,7 @@ export default function MenuItem(menuItem) {
                                     </h3>
                                     {sizes.map((size) => (
                                         <label
-                                            key={size._id}
+                                            key={size?._id}
                                             className='flex items-center gap-2 p-3 border rounded-md mb-1.5'>
                                             <input
                                                 type='radio'
@@ -90,12 +91,12 @@ export default function MenuItem(menuItem) {
                                                 }
                                                 checked={
                                                     selectedSize?.name ===
-                                                    size.name
+                                                    size?.name
                                                 }
                                                 name='size'
                                             />
-                                            {size.name} $
-                                            {basePrice + size.price}
+                                            {size?.name} $
+                                            {basePrice + size?.price}
                                         </label>
                                     ))}
                                 </div>
@@ -107,7 +108,7 @@ export default function MenuItem(menuItem) {
                                     </h3>
                                     {extraIngredientPrices.map((extraThing) => (
                                         <label
-                                            key={extraThing._id}
+                                            key={extraThing?._id}
                                             className='flex items-center gap-2 p-3 border rounded-md mb-1'>
                                             <input
                                                 type='checkbox'
@@ -118,12 +119,12 @@ export default function MenuItem(menuItem) {
                                                     )
                                                 }
                                                 checked={selectedExtras
-                                                    .map((e) => e._id)
-                                                    .includes(extraThing._id)}
-                                                name={extraThing.name}
+                                                    .map((e) => e?._id)
+                                                    .includes(extraThing?._id)}
+                                                name={extraThing?.name}
                                             />
-                                            {extraThing.name} +$
-                                            {extraThing.price}
+                                            {extraThing?.name} +$
+                                            {extraThing?.price}
                                         </label>
                                     ))}
                                 </div>

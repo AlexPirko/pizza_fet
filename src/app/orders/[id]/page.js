@@ -43,7 +43,7 @@ export default function OrderPage() {
 
     return (
         <section className='flex-auto py-8'>
-            <UserTabs isAdmin={profile.admin} />
+            <UserTabs isAdmin={profile?.admin} />
             <div className='max-w-2xl mx-auto '>
                 <div className='text-center'>
                     <SectionHeaders mainHeader='Your order' />
@@ -58,7 +58,7 @@ export default function OrderPage() {
                 {order && (
                     <div className='grid md:grid-cols-2 md:gap-16'>
                         <div>
-                            {order.cartProducts.map((product, index) => (
+                            {order?.cartProducts.map((product, index) => (
                                 <CartProduct
                                     key={index}
                                     product={product}

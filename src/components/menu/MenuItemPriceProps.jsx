@@ -37,7 +37,12 @@ export default function MenuItemPriceProps({
                 onClick={() => setIsOpen((prev) => !prev)}
                 className='inline-flex p-1 border-0 justify-start items-center'
                 type='button'>
-                {isOpen && <FaChevronUp size={20} className='mr-1' />}
+                {isOpen && (
+                    <FaChevronUp
+                        size={20}
+                        className='mr-1'
+                    />
+                )}
                 {!isOpen && <FaChevronDown size={20} />}
                 <span>{name}</span>
                 <span>({props?.length})</span>
@@ -53,7 +58,7 @@ export default function MenuItemPriceProps({
                                 <input
                                     type='text'
                                     placeholder='Size name'
-                                    value={size.name}
+                                    value={size?.name}
                                     onChange={(e) => editProp(e, index, 'name')}
                                 />
                             </div>
@@ -62,7 +67,7 @@ export default function MenuItemPriceProps({
                                 <input
                                     type='text'
                                     placeholder='Extra price'
-                                    value={size.price}
+                                    value={size?.price}
                                     onChange={(e) =>
                                         editProp(e, index, 'price')
                                     }
@@ -82,7 +87,10 @@ export default function MenuItemPriceProps({
                     type='button'
                     onClick={addProp}
                     className='btn__outline flex items-center justify-center w-full'>
-                    <FaPlus size={18} className='mb-0.5 mr-2' />
+                    <FaPlus
+                        size={18}
+                        className='mb-0.5 mr-2'
+                    />
                     <span>{addLabel}</span>
                 </button>
             </div>

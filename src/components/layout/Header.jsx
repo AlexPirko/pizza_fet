@@ -65,7 +65,7 @@ const Header = () => {
                             <span className='hidden'>Shop Cart</span>
                             {cartProducts?.length > 0 && (
                                 <span className='bg-primary/90 text-white text-xs py-1 px-1.5 rounded-full'>
-                                    {cartProducts.length}
+                                    {cartProducts?.length}
                                 </span>
                             )}
                         </Link>

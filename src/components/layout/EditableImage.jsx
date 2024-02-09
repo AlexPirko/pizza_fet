@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 
 export default function EditableImage({ link, setLink }) {
     const handleFileChange = async (e) => {
-        const files = e.target.files;
+        const files = e?.target?.files;
         if (files?.length === 1) {
             const data = new FormData();
             data.set('file', files[0]);
@@ -12,7 +12,7 @@ export default function EditableImage({ link, setLink }) {
                 method: 'POST',
                 body: data,
             }).then((response) => {
-                if (response.ok) {
+                if (response?.ok) {
                     return response.json().then((link) => {
                         setLink(link);
                     });

@@ -23,7 +23,7 @@ const RegisterPage = () => {
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
-        if (response.ok) {
+        if (response?.ok) {
             setUserCreated(true);
         } else {
             setError(true);
@@ -66,7 +66,7 @@ const RegisterPage = () => {
                     placeholder='password'
                     value={password}
                     disabled={creatingUser}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e?.target?.value)}
                 />
                 <button
                     className='submit'

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const links = [
     {
@@ -30,10 +30,10 @@ const Nav = ({ containerStyles, linkStyles }) => {
                 return (
                     <Link
                         key={index}
-                        href={link.path}
-                        offset={link.offset}
+                        href={link?.path}
+                        offset={link?.offset}
                         className={`${linkStyles}`}>
-                        {link.name}
+                        {link?.name}
                     </Link>
                 );
             })}

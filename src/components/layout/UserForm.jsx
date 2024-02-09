@@ -46,7 +46,7 @@ export default function UserForm({ user, onSave }) {
                     type='text'
                     placeholder='First and last name'
                     value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
+                    onChange={(e) => setUserName(e?.target?.value)}
                 />
                 <label>Email</label>
                 <input
@@ -62,7 +62,7 @@ export default function UserForm({ user, onSave }) {
                     }}
                     setAddressProp={handleAddressChange}
                 />
-                {loggedInUserData.admin && (
+                {loggedInUserData?.admin && (
                     <div>
                         <label
                             className='p-2 inline-flex items-center gap-2 mb-2'
@@ -73,7 +73,7 @@ export default function UserForm({ user, onSave }) {
                                 className=''
                                 value={'1'}
                                 checked={admin}
-                                onChange={(e) => setAdmin(e.target.checked)}
+                                onChange={(e) => setAdmin(e?.target?.checked)}
                             />
                             <span>Admin</span>
                         </label>

@@ -51,24 +51,24 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                     <input
                         type='text'
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setName(e?.target?.value)}
                     />
                     <label>Description</label>
                     <input
                         type='text'
                         value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        onChange={(e) => setDescription(e?.target?.value)}
                     />
                     <label>Category</label>
                     <select
                         value={category}
-                        onChange={(e) => setCategory(e.target.value)}>
+                        onChange={(e) => setCategory(e?.target?.value)}>
                         {categories?.length > 0 &&
                             categories.map((c) => (
                                 <option
-                                    key={c._id}
-                                    value={c._id}>
-                                    {c.name}
+                                    key={c?._id}
+                                    value={c?._id}>
+                                    {c?.name}
                                 </option>
                             ))}
                     </select>
@@ -76,7 +76,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                     <input
                         type='text'
                         value={basePrice}
-                        onChange={(e) => setBasePrice(e.target.value)}
+                        onChange={(e) => setBasePrice(e?.target?.value)}
                     />
                     <div className='my-6'>
                         <MenuItemPriceProps
